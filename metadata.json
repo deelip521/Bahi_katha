@@ -1,0 +1,6 @@
+{
+  "name": "Bahi Khata & Tally RAG - SME Ledger & Document Intelligence",
+  "description": "AI-powered SME ledger, traditional Bahi Khata (Udhar/Jama), Tally Prime XML/JSON integration, multimodal document intelligence OCR, and conversational RAG assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

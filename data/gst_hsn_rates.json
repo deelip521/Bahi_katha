@@ -1,0 +1,107 @@
+{
+  "version": "2026.1",
+  "country": "India",
+  "tax_system": "GST",
+  "currency": "INR",
+  "tax_slabs": [0, 5, 12, 18, 28],
+  "hsn_directory": [
+    {
+      "code": "100630",
+      "description": "Semi-milled or wholly milled rice, whether or not polished or glazed (Basmati)",
+      "category": "Agricultural & Food Grains",
+      "gst_rate": 5,
+      "cgst": 2.5,
+      "sgst": 2.5,
+      "igst": 5.0,
+      "cess": 0
+    },
+    {
+      "code": "091091",
+      "description": "Mixtures of spices referred to in Note 1(b) to Chapter 9 (Garam Masala / Curry Powder)",
+      "category": "Spices & Condiments",
+      "gst_rate": 5,
+      "cgst": 2.5,
+      "sgst": 2.5,
+      "igst": 5.0,
+      "cess": 0
+    },
+    {
+      "code": "151590",
+      "description": "Fixed vegetable fats and oils and their fractions (Cold-pressed Mustard Oil)",
+      "category": "Edible Oils",
+      "gst_rate": 5,
+      "cgst": 2.5,
+      "sgst": 2.5,
+      "igst": 5.0,
+      "cess": 0
+    },
+    {
+      "code": "481910",
+      "description": "Cartons, boxes and cases of corrugated paper or paperboard (Packaging Boxes)",
+      "category": "Packaging Materials",
+      "gst_rate": 18,
+      "cgst": 9.0,
+      "sgst": 9.0,
+      "igst": 18.0,
+      "cess": 0
+    },
+    {
+      "code": "998313",
+      "description": "Information technology (IT) consulting and support services, SaaS subscriptions",
+      "category": "Services",
+      "gst_rate": 18,
+      "cgst": 9.0,
+      "sgst": 9.0,
+      "igst": 18.0,
+      "cess": 0
+    },
+    {
+      "code": "997212",
+      "description": "Commercial properties rental or leasing services (Shop / Warehouse Rent)",
+      "category": "Rental Services",
+      "gst_rate": 18,
+      "cgst": 9.0,
+      "sgst": 9.0,
+      "igst": 18.0,
+      "cess": 0
+    },
+    {
+      "code": "847130",
+      "description": "Portable automatic data processing machines, weighing not more than 10 kg (Laptops)",
+      "category": "Electronics & Office Equipment",
+      "gst_rate": 18,
+      "cgst": 9.0,
+      "sgst": 9.0,
+      "igst": 18.0,
+      "cess": 0
+    },
+    {
+      "code": "996511",
+      "description": "Road transport services of goods by Goods Transport Agency (GTA)",
+      "category": "Freight & Transport",
+      "gst_rate": 5,
+      "cgst": 2.5,
+      "sgst": 2.5,
+      "igst": 5.0,
+      "cess": 0
+    }
+  ],
+  "state_codes": {
+    "01": "Jammu and Kashmir",
+    "02": "Himachal Pradesh",
+    "03": "Punjab",
+    "04": "Chandigarh",
+    "05": "Uttarakhand",
+    "06": "Haryana",
+    "07": "Delhi",
+    "08": "Rajasthan",
+    "09": "Uttar Pradesh",
+    "10": "Bihar",
+    "19": "West Bengal",
+    "24": "Gujarat",
+    "27": "Maharashtra",
+    "29": "Karnataka",
+    "33": "Tamil Nadu",
+    "36": "Telangana"
+  }
+}

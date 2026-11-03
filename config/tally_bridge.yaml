@@ -1,0 +1,75 @@
+# ==============================================================================
+# BahiKhata Tally Bridge Configuration
+# Configures bi-directional XML synchronization between BahiKhata and TallyPrime
+# ==============================================================================
+
+version: "2.4"
+environment: "production"
+
+tally_server:
+  host: "127.0.0.1"
+  port: 9000
+  protocol: "http"
+  timeout_seconds: 30
+  retry_attempts: 3
+  company_name: "BahiKhata Traders Private Limited"
+  guid_prefix: "BAHI-KHATA-2026"
+
+sync_rules:
+  auto_push_on_create: true
+  batch_interval_minutes: 15
+  conflict_resolution: "SERVER_WINS"
+  allow_voucher_alteration: false
+  track_party_pan: true
+  validate_gstin_checksum: true
+
+ledger_mappings:
+  sundry_debtors:
+    tally_parent: "Sundry Debtors"
+    maintain_balances_bill_by_bill: true
+    credit_days_default: 30
+    interest_calculation: true
+  sundry_creditors:
+    tally_parent: "Sundry Creditors"
+    maintain_balances_bill_by_bill: true
+    credit_days_default: 45
+    interest_calculation: false
+  bank_accounts:
+    primary_bank: "HDFC Bank Current A/c"
+    secondary_bank: "ICICI Bank Trade A/c"
+    cash_ledger: "Cash in Hand"
+
+tax_heads:
+  cgst:
+    ledger_prefix: "Output CGST"
+    parent: "Duties & Taxes"
+    tax_type: "GST"
+  sgst:
+    ledger_prefix: "Output SGST"
+    parent: "Duties & Taxes"
+    tax_type: "GST"
+  igst:
+    ledger_prefix: "Output IGST"
+    parent: "Duties & Taxes"
+    tax_type: "GST"
+
+recurring_auto_post:
+  enabled: true
+  run_daily_at: "06:00:00"
+  timezone: "Asia/Kolkata"
+  notify_on_execution:
+    whatsapp: true
+    email: "accounts@bahikhata-sme.in"
+  categories:
+    - category: "RENT"
+      target_ledger: "Rent Expenses"
+      voucher_type: "Payment"
+    - category: "SOFTWARE"
+      target_ledger: "Software Subscriptions & Cloud"
+      voucher_type: "Payment"
+    - category: "SALARY"
+      target_ledger: "Staff Salary & Wages"
+      voucher_type: "Payment"
+    - category: "UTILITY"
+      target_ledger: "Electricity & Water Expenses"
+      voucher_type: "Payment"

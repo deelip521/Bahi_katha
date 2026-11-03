@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+  BahiKhata TallyPrime XML Envelope & Master Definition
+  Compliant with Tally.ERP 9 and TallyPrime XML Server Protocol (Port 9000)
+-->
+<ENVELOPE>
+  <HEADER>
+    <TALLYREQUEST>Export Data</TALLYREQUEST>
+    <TYPE>Data</TYPE>
+    <ID>All Masters and Vouchers</ID>
+  </HEADER>
+  <BODY>
+    <DESC>
+      <STATICVARIABLES>
+        <SVEXPORTFORMAT>$$SysName:XML</SVEXPORTFORMAT>
+        <SVCURRENTCOMPANY>BahiKhata Traders Private Limited</SVCURRENTCOMPANY>
+        <SVFROMDATE>20260401</SVFROMDATE>
+        <SVTODATE>20270331</SVTODATE>
+      </STATICVARIABLES>
+    </DESC>
+    <DATA>
+      <TALLYMESSAGE xmlns:UDF="TallyUDF">
+        <!-- Master Ledger Definitions -->
+        <LEDGER NAME="Gupta Kirana Store" RESERVEDNAME="">
+          <NAME.LIST>
+            <NAME>Gupta Kirana Store</NAME>
+          </NAME.LIST>
+          <PARENT>Sundry Debtors</PARENT>
+          <ISBILLWISEON>Yes</ISBILLWISEON>
+          <ISCOSTCENTRESON>No</ISCOSTCENTRESON>
+          <ISINTERESTON>Yes</ISINTERESTON>
+          <RATEOFINTEREST>1.50</RATEOFINTEREST>
+          <INTERESTSTYLE>30-Day Month</INTERESTSTYLE>
+          <BILLCREDITPERIOD>15 Days</BILLCREDITPERIOD>
+          <COUNTRYNAME>India</COUNTRYNAME>
+          <LEDSTATENAME>Delhi</LEDSTATENAME>
+          <PINCODE>110006</PINCODE>
+          <PARTYGSTIN>07AAAAA0000A1Z5</PARTYGSTIN>
+          <GSTREGISTRATIONTYPE>Regular</GSTREGISTRATIONTYPE>
+          <OPENINGBALANCE>-25000.00</OPENINGBALANCE>
+        </LEDGER>
+
+        <LEDGER NAME="Aggarwal Spices Khari Baoli" RESERVEDNAME="">
+          <NAME.LIST>
+            <NAME>Aggarwal Spices Khari Baoli</NAME>
+          </NAME.LIST>
+          <PARENT>Sundry Creditors</PARENT>
+          <ISBILLWISEON>Yes</ISBILLWISEON>
+          <COUNTRYNAME>India</COUNTRYNAME>
+          <LEDSTATENAME>Delhi</LEDSTATENAME>
+          <PARTYGSTIN>07BBBBA1111B1Z2</PARTYGSTIN>
+          <GSTREGISTRATIONTYPE>Regular</GSTREGISTRATIONTYPE>
+          <OPENINGBALANCE>45000.00</OPENINGBALANCE>
+        </LEDGER>
+
+        <LEDGER NAME="Output CGST 9%" RESERVEDNAME="">
+          <NAME.LIST>
+            <NAME>Output CGST 9%</NAME>
+          </NAME.LIST>
+          <PARENT>Duties &amp; Taxes</PARENT>
+          <TAXTYPE>GST</TAXTYPE>
+          <GSTDUTYHEAD>CGST</GSTDUTYHEAD>
+          <RATEOFTAXCALCULATION>9.00</RATEOFTAXCALCULATION>
+        </LEDGER>
+
+        <LEDGER NAME="Output SGST 9%" RESERVEDNAME="">
+          <NAME.LIST>
+            <NAME>Output SGST 9%</NAME>
+          </NAME.LIST>
+          <PARENT>Duties &amp; Taxes</PARENT>
+          <TAXTYPE>GST</TAXTYPE>
+          <GSTDUTYHEAD>SGST</GSTDUTYHEAD>
+          <RATEOFTAXCALCULATION>9.00</RATEOFTAXCALCULATION>
+        </LEDGER>
+
+        <LEDGER NAME="Output IGST 18%" RESERVEDNAME="">
+          <NAME.LIST>
+            <NAME>Output IGST 18%</NAME>
+          </NAME.LIST>
+          <PARENT>Duties &amp; Taxes</PARENT>
+          <TAXTYPE>GST</TAXTYPE>
+          <GSTDUTYHEAD>IGST</GSTDUTYHEAD>
+          <RATEOFTAXCALCULATION>18.00</RATEOFTAXCALCULATION>
+        </LEDGER>
+
+        <!-- Sample Sales Voucher with Multi-Rate GST -->
+        <VOUCHER VCHTYPE="Sales" ACTION="Create" OBJVIEW="Invoice Voucher View">
+          <DATE>20260405</DATE>
+          <GUID>bahi-tally-vch-20260405-001</GUID>
+          <VOUCHERTYPENAME>Sales</VOUCHERTYPENAME>
+          <VOUCHERNUMBER>INV/2026/0401</VOUCHERNUMBER>
+          <PARTYLEDGERNAME>Gupta Kirana Store</PARTYLEDGERNAME>
+          <PERSISTEDVIEW>Invoice Voucher View</PERSISTEDVIEW>
+          <ISINVOICE>Yes</ISINVOICE>
+          <NARRATION>Credit sale of organic basmati rice and spices. Payment due in 15 days.</NARRATION>
+          <ALLLEDGERENTRIES.LIST>
+            <LEDGERNAME>Gupta Kirana Store</LEDGERNAME>
+            <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE>
+            <ISPARTYLEDGER>Yes</ISPARTYLEDGER>
+            <AMOUNT>-37760.00</AMOUNT>
+            <BILLALLOCATIONS.LIST>
+              <NAME>INV/2026/0401</NAME>
+              <BILLTYPE>New Ref</BILLTYPE>
+              <AMOUNT>-37760.00</AMOUNT>
+            </BILLALLOCATIONS.LIST>
+          </ALLLEDGERENTRIES.LIST>
+          <ALLLEDGERENTRIES.LIST>
+            <LEDGERNAME>Sales - GST 18%</LEDGERNAME>
+            <ISDEEMEDPOSITIVE>No</ISDEEMEDPOSITIVE>
+            <ISPARTYLEDGER>No</ISPARTYLEDGER>
+            <AMOUNT>32000.00</AMOUNT>
+          </ALLLEDGERENTRIES.LIST>
+          <ALLLEDGERENTRIES.LIST>
+            <LEDGERNAME>Output CGST 9%</LEDGERNAME>
+            <ISDEEMEDPOSITIVE>No</ISDEEMEDPOSITIVE>
+            <AMOUNT>2880.00</AMOUNT>
+          </ALLLEDGERENTRIES.LIST>
+          <ALLLEDGERENTRIES.LIST>
+            <LEDGERNAME>Output SGST 9%</LEDGERNAME>
+            <ISDEEMEDPOSITIVE>No</ISDEEMEDPOSITIVE>
+            <AMOUNT>2880.00</AMOUNT>
+          </ALLLEDGERENTRIES.LIST>
+        </VOUCHER>
+
+        <!-- Sample Recurring Rent Voucher -->
+        <VOUCHER VCHTYPE="Payment" ACTION="Create">
+          <DATE>20260401</DATE>
+          <GUID>bahi-rec-rent-20260401</GUID>
+          <VOUCHERTYPENAME>Payment</VOUCHERTYPENAME>
+          <VOUCHERNUMBER>REC-RENT-001</VOUCHERNUMBER>
+          <PARTYLEDGERNAME>Khari Baoli Properties</PARTYLEDGERNAME>
+          <NARRATION>Monthly Warehouse &amp; Shop Rent Auto-Debit</NARRATION>
+          <ALLLEDGERENTRIES.LIST>
+            <LEDGERNAME>Rent Expense Account</LEDGERNAME>
+            <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE>
+            <AMOUNT>-35000.00</AMOUNT>
+          </ALLLEDGERENTRIES.LIST>
+          <ALLLEDGERENTRIES.LIST>
+            <LEDGERNAME>HDFC Bank Current A/c</LEDGERNAME>
+            <ISDEEMEDPOSITIVE>No</ISDEEMEDPOSITIVE>
+            <AMOUNT>35000.00</AMOUNT>
+          </ALLLEDGERENTRIES.LIST>
+        </VOUCHER>
+      </TALLYMESSAGE>
+    </DATA>
+  </BODY>
+</ENVELOPE>
